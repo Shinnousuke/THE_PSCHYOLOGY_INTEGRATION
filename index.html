@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindScape – Psychology & Tests</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="top-bar">
+    <nav class="menu">
+      <a href="#about">About</a>
+      <a href="#tests">Take Test</a>
+      <a href="#knowledge">Know More</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>MINDSCAPE</h1>
+      <p>Psychology meets Python • Personality • Behaviour</p>
+      <a href="#tests" class="btn">Take a Test</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About</h2>
+    <p>
+      This website was created just for fun after discovering that Python actually
+      has libraries built for psychology and behavioural research.
+      <br><br>
+      What started as a casual conversation with a psychology student turned into
+      a curiosity project — Python + Psychology? Why not.
+      <br><br>
+      Here, you can explore personality, behaviour, and character traits through
+      simple interactive tests.
+    </p>
+  </section>
+
+  <!-- TESTS -->
+  <section id="tests" class="tests">
+    <h2>Take Test</h2>
+
+    <div class="test-grid">
+
+      <div class="test-card">
+        <h3>Personality Test</h3>
+        <p>Who should take it: Anyone curious about their personality traits.</p>
+        <button onclick="startTest('personality')">Start Test →</button>
+      </div>
+
+      <div class="test-card">
+        <h3>Behaviour Analysis</h3>
+        <p>Who should take it: People wanting insight into behaviour patterns.</p>
+        <button onclick="startTest('behaviour')">Start Test →</button>
+      </div>
+
+      <div class="test-card">
+        <h3>Stress & Coping</h3>
+        <p>Who should take it: Students & professionals managing pressure.</p>
+        <button onclick="startTest('stress')">Start Test →</button>
+      </div>
+
+      <div class="test-card">
+        <h3>Emotional Intelligence</h3>
+        <p>Who should take it: Anyone wanting to understand emotions better.</p>
+        <button onclick="startTest('emotional')">Start Test →</button>
+      </div>
+
+      <div class="test-card">
+        <h3>Motivation & Goals</h3>
+        <p>Who should take it: People exploring ambition and drive.</p>
+        <button onclick="startTest('motivation')">Start Test →</button>
+      </div>
+
+      <div class="test-card">
+        <h3>Cognitive Style</h3>
+        <p>Who should take it: Curious minds interested in thinking patterns.</p>
+        <button onclick="startTest('cognitive')">Start Test →</button>
+      </div>
+
+    </div>
+
+    <!-- TEST MODAL -->
+<div id="testModal" class="test-modal hidden">
+  <div class="test-card-ui">
+
+    <!-- USER INFO (shown once at start) -->
+    <div id="userInfo">
+      <h2>Before we begin</h2>
+
+      <input id="userName" type="text" placeholder="Your Name" required />
+      <input id="userEmail" type="email" placeholder="Your Email" required />
+
+      <button class="btn" onclick="beginTest()">Start Test</button>
+    </div>
+
+    <!-- QUESTION AREA -->
+    <div id="questionArea" class="hidden">
+      <h2 id="questionText"></h2>
+
+      <div class="options" id="optionsContainer"></div>
+
+      <div class="card-footer">
+        <button id="prevBtn" onclick="prevQuestion()">← Previous</button>
+        <span id="progressText"></span>
+        <button id="nextBtn" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultArea" class="hidden"></div>
+
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- KNOW MORE -->
+  <section id="knowledge" class="knowledge">
+    <h2>Know More</h2>
+
+    <div class="knowledge-grid">
+      <div class="knowledge-card">Personality Traits</div>
+      <div class="knowledge-card">Behavioural Psychology</div>
+      <div class="knowledge-card">Cognitive Biases</div>
+      <div class="knowledge-card">Emotional Intelligence</div>
+      <div class="knowledge-card">Mental Health Basics</div>
+      <div class="knowledge-card">Psychology + Python</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>
+      I’m a BSc Data Science student who built this website purely for learning and curiosity.
+      <br>
+      This is not a medical or clinical platform.
+    </p>
+
+    <div class="socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 MindScape • Psychology for Curious Minds
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

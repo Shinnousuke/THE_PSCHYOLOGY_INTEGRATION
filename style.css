@@ -1,13 +1,18 @@
+/* RESET */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body {
   width: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #f6f3e7;
+  color: #1f1f1f;
+  line-height: 1.6;
   overflow-x: hidden;
 }
-
-
 
 :root {
   --green: #2f4f2f;
@@ -15,68 +20,61 @@ html, body {
   --cream: #f6f3e7;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: #1f1f1f;
-  line-height: 1.6;
-}
-
-/* NAV */
-nav {
+/* TOP BAR */
+.top-bar {
   position: absolute;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 26px;
-  border-radius: 30px;
+  width: 100%;
   display: flex;
-  gap: 24px;
+  justify-content: center;
+  z-index: 10;
 }
 
-nav a {
+.menu {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px 32px;
+  border-radius: 40px;
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+}
+
+.menu a {
   text-decoration: none;
-  color: #333;
+  color: var(--green);
   font-weight: 500;
 }
 
 /* HERO */
 .hero {
   height: 90vh;
-  background: url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80")
-    center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
+  background: url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  pointer-events: none;   /* ⭐ FIX */
-}
-
-
-.hero-content p {
-  margin-bottom: 28px;   /* ADD */
+  background: rgba(0,0,0,0.35);
+  pointer-events: none;
 }
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
   font-size: 54px;
   letter-spacing: 4px;
-  margin-bottom: 14px;   /* ADD */
+  margin-bottom: 14px;
+  color: white;
+}
+
+.hero-content p {
+  margin-bottom: 28px;
+  color: white;
 }
 
 .btn {
@@ -86,7 +84,8 @@ nav a {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
-  display: inline-block; /* ADD */
+  display: inline-block;
+  cursor: pointer;
 }
 
 /* SECTIONS */
@@ -109,7 +108,7 @@ h2 {
   color: #444;
 }
 
-/* TESTS */
+/* TEST GRID */
 .test-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -121,7 +120,7 @@ h2 {
   background: white;
   padding: 24px;
   border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .test-card button {
@@ -148,7 +147,7 @@ h2 {
 }
 
 .knowledge-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   padding: 24px;
   border-radius: 18px;
   text-align: center;
@@ -179,34 +178,7 @@ footer {
   color: #666;
 }
 
-/* TOP MENU BAR */
-.top-bar {
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-}
-
-.menu {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 12px 32px;
-  border-radius: 40px;
-  display: flex;
-  gap: 30px;
-  font-size: 14px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #2f4f2f;
-  font-weight: 500;
-}
-
-
-
-
+/* MODAL */
 .test-modal {
   position: fixed;
   inset: 0;
@@ -224,6 +196,7 @@ footer {
   padding: 40px;
   border-radius: 12px;
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .test-card-ui h2 {
@@ -237,18 +210,16 @@ footer {
   gap: 18px;
 }
 
-.option-btn {
-  padding: 16px;
+.options label {
+  padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
   background: white;
-  text-align: left;
-  transition: 0.3s;
 }
 
-.option-btn:hover {
-  background: #f1eee9;
+.options input {
+  margin-right: 10px;
 }
 
 .card-footer {
@@ -280,24 +251,7 @@ footer {
   color: #666;
 }
 
-
-.hidden {
-  display: none;
-}
-
-
-
-.options label {
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  background: white;
-}
-
-.options input {
-  margin-right: 10px;
-}
+.hidden { display: none; }
 
 #userInfo input {
   width: 100%;

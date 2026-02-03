@@ -592,3 +592,108 @@ function submitIncompleteTest() {
 
   submitTest();
 }
+// ✅ Knowledge Cards Carousel - Robust Version
+document.addEventListener("DOMContentLoaded", () => {
+  const knowledgeTopics = {
+    "Personality Traits": [
+      ` What Are Personality Traits?<br><br>
+Personality traits are the patterns of thoughts, feelings, and behaviors that make you unique.
+They influence how you interact with others, make decisions, and approach challenges.
+Understanding your personality can help improve self-awareness, relationships, and personal growth.`,
+
+      ` Introvert<br><br>
+Reflective, inward-focused, and emotionally sensitive.
+Prefers meaningful conversations and calm environments over constant social interaction.
+Values stability, routine, and thoughtful decision-making.<br><br>
+Key Traits:<br>
+- Enjoys solitude or small groups<br>
+- Thinks before speaking or acting<br>
+- Emotionally reflective and empathetic<br>
+- Detail-oriented and careful`,
+
+      `Sensor<br><br>
+Practical, grounded, and focused on facts and experiences.
+Lives in the present moment and trusts concrete information.
+Prefers clear instructions, predictable routines, and observable results.<br><br>
+Key Traits:<br>
+- Observant and detail-focused<br>
+- Realistic and practical<br>
+- Enjoys hands-on experiences<br>
+- Prefers step-by-step approaches<br>
+- Values reliability and consistency`,
+
+      ` Feeler<br><br>
+Guided by emotions, values, and empathy.
+Makes decisions based on compassion and consideration for others.
+Sensitive to harmony and emotional impact in interactions.<br><br>
+Key Traits:<br>
+- Empathetic and understanding<br>
+- Compassionate in decision-making<br>
+- Values relationships and harmony<br>
+- Emotionally expressive<br>
+- Avoids conflicts when possible`,
+
+      `Perceiver<br><br>
+ Flexible, spontaneous, and open to new information.
+Prefers to keep options open rather than rigidly plan ahead.
+Adapts easily to changes and unexpected situations.<br><br>
+Key Traits:<br>
+- Open-minded and adaptable<br>
+- Enjoys variety and spontaneity<br>
+- Comfortable with uncertainty<br>
+- Flexible and responsive<br>
+- Avoids strict schedules or routines`
+    ],
+
+    "Behavioural Psychology": [
+      "Behavior 1 info...", 
+      "Behavior 2 info...", 
+      "Behavior 3 info..."
+    ],
+
+    "Cognitive Biases": [...Array(10).keys()].map(i => `Cognitive Bias ${i+1} info`),
+
+    "Emotional Intelligence": [...Array(10).keys()].map(i => `EI ${i+1} info`),
+
+    "Mental Health Basics": [...Array(10).keys()].map(i => `Mental Health Basic ${i+1}`),
+
+    "Overview Remedies": [...Array(10).keys()].map(i => `Remedy ${i+1}`),
+
+    "Stress and Coping": [...Array(10).keys()].map(i => `Stress & Coping ${i+1}`),
+
+    "Motivation and Goals": [...Array(10).keys()].map(i => `Motivation ${i+1}`)
+  };
+
+  let currentKnowledgeIndex = 0;
+  let currentKnowledgeArray = [];
+
+  document.querySelectorAll(".knowledge-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const topic = card.innerText;
+      currentKnowledgeArray = knowledgeTopics[topic];
+      currentKnowledgeIndex = 0;
+      showKnowledgeCard();
+      document.getElementById("knowledgeModal").classList.remove("hidden");
+    });
+  });
+
+  document.getElementById("closeKnowledgeModal").addEventListener("click", () => {
+    document.getElementById("knowledgeModal").classList.add("hidden");
+  });
+
+  document.getElementById("prevKnowledge").addEventListener("click", () => {
+    if (currentKnowledgeIndex > 0) currentKnowledgeIndex--;
+    showKnowledgeCard();
+  });
+
+  document.getElementById("nextKnowledge").addEventListener("click", () => {
+    if (currentKnowledgeIndex < currentKnowledgeArray.length - 1) currentKnowledgeIndex++;
+    showKnowledgeCard();
+  });
+
+  function showKnowledgeCard() {
+    const content = currentKnowledgeArray[currentKnowledgeIndex];
+    document.getElementById("knowledgeContent").innerHTML = `<p>${content}</p>`;
+    document.getElementById("knowledgeProgress").innerText = `${currentKnowledgeIndex + 1} / ${currentKnowledgeArray.length}`;
+  }
+});

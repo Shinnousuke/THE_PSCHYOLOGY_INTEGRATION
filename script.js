@@ -595,74 +595,319 @@ function submitIncompleteTest() {
 // ✅ Knowledge Cards Carousel - Robust Version
 document.addEventListener("DOMContentLoaded", () => {
   const knowledgeTopics = {
-    "Personality Traits": [
-      ` What Are Personality Traits?<br><br>
-Personality traits are the patterns of thoughts, feelings, and behaviors that make you unique.
-They influence how you interact with others, make decisions, and approach challenges.
-Understanding your personality can help improve self-awareness, relationships, and personal growth.`,
+  "Personality Traits": [
+    `Slide 1: What Is Personality?<br><br>
+Personality refers to the unique pattern of thoughts, feelings, and behaviors that make a person who they are.
+It influences how we interact with others, respond to situations, make decisions, and express emotions.
+Personality develops through a mix of biological factors, life experiences, environment, and personal choices.`,
 
-      ` Introvert<br><br>
-Reflective, inward-focused, and emotionally sensitive.
-Prefers meaningful conversations and calm environments over constant social interaction.
-Values stability, routine, and thoughtful decision-making.<br><br>
-Key Traits:<br>
-- Enjoys solitude or small groups<br>
-- Thinks before speaking or acting<br>
-- Emotionally reflective and empathetic<br>
-- Detail-oriented and careful`,
+    `Slide 2: Introvert Personality<br><br>
+Introverts focus inward and feel energized by alone time or small groups.
+They prefer deep conversations over casual socializing and enjoy reflective activities.
+Being introverted does not mean being shy—it reflects how a person recharges and processes experiences.`,
 
-      `Sensor<br><br>
-Practical, grounded, and focused on facts and experiences.
-Lives in the present moment and trusts concrete information.
-Prefers clear instructions, predictable routines, and observable results.<br><br>
-Key Traits:<br>
-- Observant and detail-focused<br>
-- Realistic and practical<br>
-- Enjoys hands-on experiences<br>
-- Prefers step-by-step approaches<br>
-- Values reliability and consistency`,
+    `Slide 3: Feeler Personality<br><br>
+Feelers make decisions based on emotions, values, and how choices affect people.
+They are empathetic, compassionate, and sensitive to others’ needs.
+They value harmony and emotional connection in relationships.`,
 
-      ` Feeler<br><br>
-Guided by emotions, values, and empathy.
-Makes decisions based on compassion and consideration for others.
-Sensitive to harmony and emotional impact in interactions.<br><br>
-Key Traits:<br>
-- Empathetic and understanding<br>
-- Compassionate in decision-making<br>
-- Values relationships and harmony<br>
-- Emotionally expressive<br>
-- Avoids conflicts when possible`,
+    `Slide 4: Perceiver Personality<br><br>
+Perceivers prefer flexibility and spontaneity over strict plans.
+They keep options open and adapt as situations change.
+This type is curious, creative, and comfortable with uncertainty.`,
 
-      `Perceiver<br><br>
- Flexible, spontaneous, and open to new information.
-Prefers to keep options open rather than rigidly plan ahead.
-Adapts easily to changes and unexpected situations.<br><br>
-Key Traits:<br>
-- Open-minded and adaptable<br>
-- Enjoys variety and spontaneity<br>
-- Comfortable with uncertainty<br>
-- Flexible and responsive<br>
-- Avoids strict schedules or routines`
-    ],
+    `Slide 5: Balanced Personality<br><br>
+Balanced personality reflects flexibility between different traits.
+Such individuals can be social yet introspective, emotional yet logical, structured yet adaptable.
+Balance helps manage stress, relationships, and life challenges effectively.`,
 
-    "Behavioural Psychology": [
-      "Behavior 1 info...", 
-      "Behavior 2 info...", 
-      "Behavior 3 info..."
-    ],
+    `Slide 6: Extrovert Personality<br><br>
+Extroverts gain energy from social interactions.
+They enjoy people, sharing ideas, and engaging in groups.
+Extroversion comes with strong communication skills and outward enthusiasm.`,
 
-    "Cognitive Biases": [...Array(10).keys()].map(i => `Cognitive Bias ${i+1} info`),
+    `Slide 7: Intuitive Personality<br><br>
+Intuitive individuals focus on patterns, meanings, and future possibilities.
+They rely on insights, imagination, and abstract thinking rather than only facts.
+This trait is commonly associated with creativity and innovation.`,
 
-    "Emotional Intelligence": [...Array(10).keys()].map(i => `EI ${i+1} info`),
+    `Slide 8: Thinker Personality<br><br>
+Thinkers make decisions using logic, analysis, and objective reasoning.
+They prioritize fairness, consistency, and problem-solving.
+This personality type often excels in structured thinking and critical evaluation.`,
 
-    "Mental Health Basics": [...Array(10).keys()].map(i => `Mental Health Basic ${i+1}`),
+    `Slide 9: Judger Personality<br><br>
+Judgers prefer organization, planning, and clear structure.
+They like schedules, deadlines, and closure.
+This trait helps in goal-setting, discipline, and long-term planning.`
+  ],
 
-    "Overview Remedies": [...Array(10).keys()].map(i => `Remedy ${i+1}`),
+  "Behavioural Traits": [
+    `Slide 1: What Is Behaviour?<br><br>
+Behaviour refers to actions, reactions, and responses of an individual.
+It includes conscious actions and unconscious habits influenced by thoughts and emotions.
+Behaviour is shaped by personality, environment, experiences, and learning.`,
 
-    "Stress and Coping": [...Array(10).keys()].map(i => `Stress & Coping ${i+1}`),
+    `Slide 2: Emotional Behaviour<br><br>
+Emotional behaviour is driven by feelings like happiness, anger, fear, or sadness.
+It reflects how well a person understands and manages emotions.
+Strong emotional awareness leads to healthier behaviour.`,
 
-    "Motivation and Goals": [...Array(10).keys()].map(i => `Motivation ${i+1}`)
-  };
+    `Slide 3: Impulsive Behaviour<br><br>
+Impulsive behaviour involves acting without much thought.
+It is often driven by immediate emotions or urges.
+While spontaneity can be positive, frequent impulsiveness may cause conflict or regret.`,
+
+    `Slide 4: Balanced Behaviour<br><br>
+Balanced behaviour reflects emotional control and thoughtful decision-making.
+It helps maintain healthy relationships and personal well-being.
+It involves responding rather than reacting.`,
+
+    `Slide 5: Adaptive Behaviour<br><br>
+Adaptive behaviour is the ability to adjust actions according to situations.
+It helps cope with change, challenges, and new environments.
+Flexibility is a key aspect.`,
+
+    `Slide 6: Disciplined Behaviour<br><br>
+Disciplined behaviour involves self-control, consistency, and responsibility.
+It helps achieve goals and maintain routines.
+Discipline supports long-term success.`,
+
+    `Slide 7: Cognitive Behaviour<br><br>
+Cognitive behaviour is influenced by thoughts, beliefs, and perceptions.
+How we think affects how we act and respond.
+Positive thinking leads to healthier behavioural patterns.`,
+
+    `Slide 8: How Behaviour Affects Others<br><br>
+Your behaviour influences relationships and team dynamics.
+Emotional outbursts or impulsiveness may strain connections.
+Balanced, disciplined behaviour encourages trust and collaboration.`,
+
+    `Slide 9: How Behaviour Affects Yourself<br><br>
+Behaviour impacts mental and physical health.
+Good habits enhance well-being, while negative patterns can cause stress or burnout.
+Self-awareness improves personal growth and decision-making.`,
+
+    `Slide 10: Impacts of Behaviour<br><br>
+Behaviour affects productivity, social relationships, and emotional balance.
+Understanding behavioural patterns helps improve interactions, learning, and self-development.`
+  ],
+
+  "Stress and Coping": [
+    `Slide 1: What Is Stress?<br><br>
+Stress is the body’s response to pressure or challenging situations.
+It can be caused by external demands or internal thoughts.
+Stress is natural but harmful if unmanaged.`,
+
+    `Slide 2: Low Stress<br><br>
+Low stress keeps the mind alert and motivated.
+It can improve focus, productivity, and performance.
+It is generally manageable and short-term.`,
+
+    `Slide 3: Moderate Stress<br><br>
+Moderate stress occurs when demands increase.
+It may cause temporary anxiety or tiredness.
+Proper coping helps manage it effectively.`,
+
+    `Slide 4: High Stress<br><br>
+High stress is intense and long-lasting.
+It can affect sleep, health, mood, and concentration.
+Chronic stress negatively impacts mental and physical well-being.`,
+
+    `Slide 5: Strong Coping Ability<br><br>
+Strong coping handles stress healthily.
+Includes problem-solving, emotional regulation, and support-seeking.
+People recover faster with strong coping skills.`,
+
+    `Slide 6: Low Coping Ability<br><br>
+Low coping makes stress management difficult.
+It may lead to avoidance, emotional outbursts, or burnout.
+Improving coping skills is essential.`,
+
+    `Slide 7: How To Cope With Stress<br><br>
+Deep breathing, mindfulness, regular exercise, time management, and social support are effective strategies.`,
+
+    `Slide 8: Why Coping Is Important<br><br>
+Coping reduces negative health effects.
+Maintains emotional balance, relationships, and productivity.`,
+
+    `Slide 9: Remedies Anywhere<br><br>
+Short walks, deep breathing, stretching, listening to music, or journaling can help anywhere.`,
+
+    `Slide 10: Impacts of Stress<br><br>
+Stress affects mood, energy, focus, and physical health.
+Proper management improves performance and mental well-being.`
+  ],
+
+  "Emotional Intelligence": [
+    `Slide 1: What Is Emotional Intelligence?<br><br>
+EQ is the ability to understand, manage, and express emotions effectively.
+Also involves recognizing emotions in others and responding empathetically.
+Plays a key role in handling relationships, stress, and challenges.`,
+
+    `Slide 2: Importance of EQ<br><br>
+Influences decision-making, communication, and emotional balance.
+High EQ helps manage conflicts calmly and build strong relationships.
+Considered as important as intellectual ability.`,
+
+    `Slide 3: Low EQ<br><br>
+Difficulty understanding or controlling emotions.
+May react impulsively or struggle with empathy.
+Can cause misunderstandings and stress.`,
+
+    `Slide 4: Moderate EQ<br><br>
+Partial awareness of emotions.
+Can manage emotions in some situations but struggles under pressure.
+Improvement is possible with practice.`,
+
+    `Slide 5: High EQ<br><br>
+Strong self-awareness and emotional regulation.
+Respond thoughtfully rather than react emotionally.
+Handles stress well and maintains healthy relationships.`,
+
+    `Slide 6: Crying & EQ<br><br>
+Crying is a natural emotional release.
+High EQ allows understanding of emotions behind crying, not suppressing them.`,
+
+    `Slide 7: How EQ Impacts Us<br><br>
+Better mental health, stress control, decision-making, and social interactions.`,
+
+    `Slide 8: How EQ Impacts Others<br><br>
+Empathetic interactions improve relationships.
+Others feel understood and supported.`,
+
+    `Slide 9: Remedies to Improve EQ<br><br>
+Mindfulness, journaling, reflecting on emotions, active listening, empathy exercises.`
+  ],
+
+  "Motivation and Goals": [
+    `Slide 1: What Is Motivation?<br><br>
+Inner drive that pushes action, growth, and achieving goals.
+Gives direction, energy, and purpose to behaviour.`,
+
+    `Slide 2: Why Motivation Is Important<br><br>
+Keeps focus despite difficulties.
+Encourages persistence and goal-oriented behaviour.`,
+
+    `Slide 3: Extrinsic Motivation<br><br>
+Driven by external rewards: money, praise, grades, recognition.
+Effective for short-term goals.`,
+
+    `Slide 4: Balanced Motivation<br><br>
+Combines internal interest with external rewards.
+Supports long-term consistency without burnout.`,
+
+    `Slide 5: Strong Extrinsic Motivation<br><br>
+Heavily relies on rewards or pressure.
+Can drive performance but may cause stress.
+Motivation may drop if rewards are removed.`,
+
+    `Slide 6: Why People Need Motivation<br><br>
+To act, grow, persist, and achieve goals.`,
+
+    `Slide 7: Consequences of No Motivation<br><br>
+Low productivity, lack of focus, procrastination, missed goals.`,
+
+    `Slide 8: Impact on Others<br><br>
+Motivated individuals inspire teamwork.
+Lack of motivation may demotivate peers.`,
+
+    `Slide 9: Effect on Productivity<br><br>
+Strong motivation boosts consistency, efficiency, and output.`
+  ],
+
+  "Cognitive Biases": [
+    `Slide 1: What Is Cognitive Thinking?<br><br>
+How the mind processes information: perception, memory, reasoning, problem-solving.
+Cognitive styles influence understanding and responses.`,
+
+    `Slide 2: Intuitive Thinking<br><br>
+Relies on instinct and pattern recognition.
+Decisions made quickly based on experience.
+Useful for creativity and rapid decisions.`,
+
+    `Slide 3: Concrete Thinking<br><br>
+Focuses on facts, details, and observable info.
+Works well for routine tasks and clear instructions.`,
+
+    `Slide 4: Balanced Cognitive Style<br><br>
+Combines intuition with logic.
+Flexible thinking supports effective decision-making.`,
+
+    `Slide 5: Analytical Thinking<br><br>
+Breaks problems into smaller parts.
+Relies on data, structure, and logical evaluation.
+Effective for problem-solving and planning.`,
+
+    `Slide 6: Critical Thinking<br><br>
+Evaluates info objectively.
+Questions assumptions and identifies biases.
+Helps in informed and rational choices.`,
+
+    `Slide 7: Importance of Cognitive Thinking<br><br>
+Shapes learning and understanding.
+Improves adaptability and reasoning.
+Crucial for personal and professional success.`,
+
+    `Slide 8: Effect on Productivity<br><br>
+Clear cognitive processing improves focus, efficiency, and reduces errors.
+Better thinking = smarter work.`,
+
+    `Slide 9: Why Know Your Cognitive Style?<br><br>
+Self-awareness improves decision-making.
+Understanding others’ thinking enhances communication.
+Supports personal and professional growth.`
+  ],
+  "Overview Remedies": [
+  `Slide 1: Healthy Lifestyle<br><br>
+Regular exercise, balanced diet, and sufficient sleep improve mood and cognitive function.
+Physical health strongly supports mental well-being.`,
+
+  `Slide 2: Stress Management Techniques<br><br>
+Mindfulness, meditation, deep breathing, yoga, and time management reduce stress.
+Helps prevent burnout and promotes calmness.`,
+
+  `Slide 3: Emotional Expression<br><br>
+Talk about feelings with trusted friends, family, or therapists.
+Journaling or creative outlets helps process emotions effectively.`,
+
+  `Slide 4: Cognitive & Behavioural Strategies<br><br>
+Positive thinking, setting realistic goals, problem-solving, and challenging negative thoughts.
+Cognitive-behavioural approaches help change unhelpful patterns.`,
+
+  `Slide 5: Social Support & Professional Help<br><br>
+Maintain healthy relationships and support networks.
+Seek professional help when needed (psychologists, counselors, therapists).
+Combining self-care with professional guidance enhances recovery and growth.`
+]
+,
+"Mental Health Basics": [
+  `Slide 1: What Is Mental Health?<br><br>
+Mental health refers to your emotional, psychological, and social well-being.
+It affects how you think, feel, and behave daily.
+Good mental health helps handle stress, relate to others, and make decisions.`,
+
+  `Slide 2: Common Mental Health Issues<br><br>
+Stress, anxiety, depression, and mood disorders are common challenges.
+They can affect work, relationships, and daily functioning.
+Early recognition and support are key to management.`,
+
+  `Slide 3: Signs of Poor Mental Health<br><br>
+Persistent sadness or irritability, fatigue, changes in sleep or appetite, difficulty concentrating, and social withdrawal.
+Noticing these signs early helps in seeking timely support.`,
+
+  `Slide 4: Importance of Awareness<br><br>
+Understanding your mental health reduces stigma.
+Awareness promotes self-care, empathy, and seeking help when needed.
+It encourages a proactive approach to well-being.`,
+
+  `Slide 5: Building Mental Resilience<br><br>
+Resilience helps cope with challenges and recover from setbacks.
+It involves emotional regulation, problem-solving skills, support networks, and maintaining a balanced lifestyle.`
+]
+
+
+};
 
   let currentKnowledgeIndex = 0;
   let currentKnowledgeArray = [];

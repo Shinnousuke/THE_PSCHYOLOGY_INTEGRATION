@@ -1,3 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+
 :root {
   --green: #2f4f2f;
   --dark: #1f2e1f;
@@ -63,7 +74,7 @@ nav a {
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 64px;
+  font-size: 54px;
   letter-spacing: 4px;
   margin-bottom: 14px;   /* ADD */
 }
@@ -305,4 +316,31 @@ footer {
   padding: 14px;
   margin: 10px 0;
   border-radius: 10px;
+}
+
+.traits-list {
+  margin: 16px auto;
+  max-width: 420px;
+  text-align: left;
+}
+
+.traits-list li {
+  margin-bottom: 8px;
+  list-style: "•  ";
+  padding-left: 6px;
+  color: #333;
+}
+
+.exit-warning {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0.95;
 }

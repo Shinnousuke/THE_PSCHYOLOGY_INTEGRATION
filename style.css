@@ -538,4 +538,23 @@ footer {
     padding: 10px 0;
   }
 }
+.modal-content {
+  height: auto;
+  max-height: 80vh;   /* prevents overflow on long text */
+  overflow-y: auto;   /* scroll only if needed */
+}
+.slide-content {
+  height: auto;
+  min-height: unset;
+  padding: 16px;
+}
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 14px;
+    max-height: 85vh;
+  }
+}
+
+
+
 

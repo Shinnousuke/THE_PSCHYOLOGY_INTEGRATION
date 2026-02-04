@@ -557,4 +557,122 @@ footer {
 
 
 
+/* =========================================
+   KNOWLEDGE MODAL — FINAL OVERRIDE FIX
+   ========================================= */
+
+/* Modal backdrop */
+.knowledge-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Modal card — AUTO HEIGHT */
+.knowledge-card-ui {
+  background: #fdfaf6;
+  width: 92%;
+  max-width: 700px;
+
+  height: auto !important;        /* ✅ REMOVE fixed height */
+  max-height: 85vh;               /* ✅ safety limit */
+  overflow-y: auto;               /* scroll only if needed */
+
+  padding: 24px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  text-align: center;
+
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+
+/* Compact centering for short slides */
+.knowledge-card-ui.compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Knowledge content — FLEXIBLE HEIGHT */
+#knowledgeContent {
+  height: auto !important;
+  min-height: unset !important;   /* ❌ remove forced 200px */
+
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Smooth slide transition */
+#knowledgeContent.fade-out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+#knowledgeContent.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer arrows */
+.carousel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.carousel-footer .arrow-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  .knowledge-card-ui {
+    width: 92%;
+    height: auto !important;      /* 🚫 no vh heights */
+    max-height: 85vh;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  #knowledgeContent {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .carousel-footer {
+    font-size: 14px;
+  }
+
+  .carousel-footer .arrow-btn {
+    font-size: 18px;
+  }
+}
+
 

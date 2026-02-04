@@ -149,10 +149,20 @@ h2 {
 
 .knowledge-card {
   background: rgba(255, 255, 255, 0.1);
-  padding: 24px;
+  padding: 18px 20px;
   border-radius: 18px;
   text-align: center;
+
+  height: auto;              /* 🔑 auto height */
+  align-self: start;         /* 🔑 prevents stretching */
+  display: inline-flex;      /* 🔑 shrink to content */
+  flex-direction: column;
+  gap: 10px;
+
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 
 /* CONTACT */
 .contact p {
@@ -205,8 +215,6 @@ footer {
 }
 
 
-
-
 .test-modal {
   position: fixed;
   inset: 0;
@@ -219,12 +227,18 @@ footer {
 
 .test-card-ui {
   background: #fdfaf6;
-  width: 70%;
-  max-width: 700px;
-  padding: 40px;
-  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;        /* 🔑 smaller looks better */
+  padding: 28px;
+  border-radius: 14px;
+
+  height: auto;            /* 🔑 content-based height */
+  max-height: 85vh;        /* 🔑 prevents overflow */
+  overflow-y: auto;
+
   font-family: 'Poppins', sans-serif;
 }
+
 
 .test-card-ui h2 {
   font-size: 26px;
@@ -424,9 +438,24 @@ footer {
 .knowledge-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;   /* 🔑 THIS was missing */
   gap: 30px;
   margin-top: 40px;
 }
+
+.knowledge-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px 18px;
+  border-radius: 18px;
+  text-align: center;
+
+  height: auto;         /* 🔑 text decides height */
+  cursor: pointer;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
 
 /* 📱 MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
@@ -471,10 +500,7 @@ footer {
 
   /* 🧠 TEST MODAL */
   .test-card-ui {
-    width: 92%;
-    height: 90vh;
-    padding: 24px;
-    overflow-y: auto;
+    transition: max-height 0.35s ease, padding 0.25s ease;
   }
 
   .test-card-ui h2 {
@@ -491,7 +517,7 @@ footer {
     font-size: 12px;
   }
 
-  /* 📘 KNOWLEDGE MODAL */
+  /* 📘 KNOWLEDGE MODAL 
   .knowledge-card-ui {
     width: 92%;
     height: 88vh;
@@ -513,18 +539,12 @@ footer {
   }
 
 }
+
 .knowledge-card,
 .test-card {
   -webkit-tap-highlight-color: transparent;
-}
-@media (max-width: 768px) {
-  .card-footer {
-    position: sticky;
-    bottom: 0;
-    background: #fdfaf6;
-    padding: 10px 0;
-  }
-}
+}*/
+
 .modal-content {
   width: 90%;
   max-width: 420px;
@@ -538,4 +558,32 @@ footer {
 
   overflow-y: auto;
 }
+/* =========================
+   SMOOTH AUTO-HEIGHT MODAL
+   ========================= */
 
+.knowledge-card-ui {
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+
+/* Auto-center short content */
+.knowledge-card-ui.compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Smooth content transition */
+#knowledgeContent {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#knowledgeContent.fade-out {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+#knowledgeContent.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}

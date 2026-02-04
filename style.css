@@ -538,32 +538,4 @@ footer {
 
   overflow-y: auto;
 }
-/* =========================
-   SMOOTH AUTO-HEIGHT MODAL
-   ========================= */
 
-.knowledge-card-ui {
-  transition: max-height 0.35s ease, padding 0.25s ease;
-}
-
-/* Auto-center short content */
-.knowledge-card-ui.compact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Smooth content transition */
-#knowledgeContent {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-#knowledgeContent.fade-out {
-  opacity: 0;
-  transform: translateY(6px);
-}
-
-#knowledgeContent.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}

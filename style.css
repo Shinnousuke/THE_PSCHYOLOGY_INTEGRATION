@@ -428,10 +428,100 @@ footer {
   margin-top: 40px;
 }
 
-/* Make cards full width on small screens */
-@media (max-width: 480px) {
-  .test-grid,
-  .knowledge-grid {
-    grid-template-columns: 1fr; /* single column full width */
+/* 📱 MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+  /* NAV */
+  .menu {
+    gap: 16px;
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  /* HERO */
+  .hero {
+    height: 80vh;
+    padding: 0 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 60px 6%;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  /* TEST + KNOWLEDGE CARDS */
+  .test-card,
+  .knowledge-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .test-card button {
+    font-size: 14px;
+  }
+
+  /* 🧠 TEST MODAL */
+  .test-card-ui {
+    width: 92%;
+    height: 90vh;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .test-card-ui h2 {
+    font-size: 22px;
+  }
+
+  .options label {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .card-footer {
+    grid-template-columns: auto 1fr auto;
+    font-size: 12px;
+  }
+
+  /* 📘 KNOWLEDGE MODAL */
+  .knowledge-card-ui {
+    width: 92%;
+    height: 88vh;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  #knowledgeContent p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .carousel-footer {
+    font-size: 14px;
+  }
+
+  .arrow-btn {
+    font-size: 18px;
+  }
+
+}
+.knowledge-card,
+.test-card {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 768px) {
+  .card-footer {
+    position: sticky;
+    bottom: 0;
+    background: #fdfaf6;
+    padding: 10px 0;
   }
 }

@@ -937,39 +937,8 @@ It involves emotional regulation, problem-solving skills, support networks, and 
   });
 
   function showKnowledgeCard() {
-  const content = currentKnowledgeArray[currentKnowledgeIndex];
-
-  updateKnowledgeContent(content);
-
-  document.getElementById("knowledgeProgress").innerText =
-    `${currentKnowledgeIndex + 1} / ${currentKnowledgeArray.length}`;
-}
-
-
- function updateKnowledgeContent(html) {
-  const contentEl = document.getElementById("knowledgeContent");
-  const cardEl = document.querySelector(".knowledge-card-ui");
-
-  // Fade out
-  contentEl.classList.remove("fade-in");
-  contentEl.classList.add("fade-out");
-
-  setTimeout(() => {
-    contentEl.innerHTML = `<p>${html}</p>`;
-
-    // 🔑 Auto compact for short content
-    if (contentEl.scrollHeight < 200) {
-      cardEl.classList.add("compact");
-    } else {
-      cardEl.classList.remove("compact");
-    }
-
-    // Fade in
-    contentEl.classList.remove("fade-out");
-    contentEl.classList.add("fade-in");
-  }, 180);
-}
-  
-
+    const content = currentKnowledgeArray[currentKnowledgeIndex];
+    document.getElementById("knowledgeContent").innerHTML = `<p>${content}</p>`;
+    document.getElementById("knowledgeProgress").innerText = `${currentKnowledgeIndex + 1} / ${currentKnowledgeArray.length}`;
+  }
 });
-

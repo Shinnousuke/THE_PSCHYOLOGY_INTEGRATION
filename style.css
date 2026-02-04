@@ -66,6 +66,19 @@ nav a {
   background: rgba(0, 0, 0, 0.35);
   pointer-events: none;   /* ⭐ FIX */
 }
+.modal-content {
+  width: 90%;
+  max-width: 420px;
+
+  /* 🔑 THIS IS THE KEY */
+  height: auto;
+  max-height: 85vh;
+
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  overflow-y: auto;
+}
 
 
 .hero-content p {
@@ -525,3 +538,4 @@ footer {
     padding: 10px 0;
   }
 }
+
